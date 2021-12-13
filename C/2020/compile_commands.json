@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/whs/文档/Advent_Of_Code/C/2020/build",
+  "command": "/usr/bin/gcc    -Wall -Wextra -Wpedantic -g -std=c11 -o CMakeFiles/aoc.dir/main.c.o -c /home/whs/文档/Advent_Of_Code/C/2020/main.c",
+  "file": "/home/whs/文档/Advent_Of_Code/C/2020/main.c"
+}
+]

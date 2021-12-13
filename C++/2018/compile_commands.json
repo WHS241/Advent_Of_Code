@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/whs/文档/Advent_Of_Code/C++/2018/build",
+  "command": "/usr/bin/g++  -isystem /home/whs/文档/Advent_Of_Code/C++/2018/alg_dir/structures/include -isystem /home/whs/文档/Advent_Of_Code/C++/2018/alg_dir/graph/include -isystem /home/whs/文档/Advent_Of_Code/C++/2018/alg_dir/util/include -isystem /usr/include/ortools  -Wall -Wextra -Wpedantic -pthread -g -std=c++2a -o CMakeFiles/aoc.dir/main.cpp.o -c /home/whs/文档/Advent_Of_Code/C++/2018/main.cpp",
+  "file": "/home/whs/文档/Advent_Of_Code/C++/2018/main.cpp"
+}
+]

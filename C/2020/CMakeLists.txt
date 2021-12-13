@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.18)
+
+project("AoC2020")
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(SOURCE_FILES main.c)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+
+add_executable(aoc ${SOURCE_FILES})

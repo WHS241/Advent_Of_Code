@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/whs/文档/Advent_Of_Code/C++/2015/build",
+  "command": "/usr/bin/g++  -isystem /usr/include/openssl -isystem /home/whs/文档/Advent_Of_Code/C++/2015/alg_dir/structures/include -isystem /home/whs/文档/Advent_Of_Code/C++/2015/alg_dir/util/include  -Wall -Wextra -Wpedantic -std=c++17 -pthread -g -std=c++17 -o CMakeFiles/aoc.dir/main.cpp.o -c /home/whs/文档/Advent_Of_Code/C++/2015/main.cpp",
+  "file": "/home/whs/文档/Advent_Of_Code/C++/2015/main.cpp"
+}
+]

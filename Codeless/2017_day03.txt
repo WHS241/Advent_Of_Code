@@ -1,0 +1,8 @@
+Part 1:
+Perfect squares:
+1->{0,0}, 9->{1,1}, 25 -> {2, 2}, etc.
+4->{-1,0}, 16->{-2, -1}, 36->{-3, -2}, etc.
+turning numbers at n^2 + 1 and n^2 + n + 1
+
+Part 2:
+See OEIS A141481
