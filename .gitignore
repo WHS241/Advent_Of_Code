@@ -2,6 +2,7 @@ Status.ods
 build
 bin
 input
+compile_commands.json
 .cache
 .vscode
 *_cmake.sh
