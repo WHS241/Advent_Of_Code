@@ -1,0 +1,8 @@
+Status.ods
+C++/*/bin/aoc
+C++/*/bin/test
+C/*/bin/aoc
+C/*/bin/test
+build
+.cache
+.vscode
