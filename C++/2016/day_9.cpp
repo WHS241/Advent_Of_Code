@@ -6,7 +6,7 @@
 #include <limits>
 
 std::size_t
-  decompressed_length(std::istream& is,
+  decompressed_length(std::istream& is, bool recurse,
                       std::size_t input_length = std::numeric_limits<std::streamsize>::max()) {
     std::size_t result = 0;
     std::size_t extracted = 0;
@@ -27,12 +27,12 @@ std::size_t
 
             extracted += length;
 
-#if DAY_9 == 1
-            result += reps * length;
-            is.ignore(length);
-#elif DAY_9 == 2
-            result += reps * decompressed_length(is, length);
-#endif
+            if (recurse) {
+                result += reps * decompressed_length(is, recurse, length);
+            } else {
+                result += reps * length;
+                is.ignore(length);
+            }
         }
     }
 
@@ -44,8 +44,13 @@ int day_9_main(int argc, char** argv) {
         return 1;
 
     std::ifstream reader(argv[1]);
+    std::string input;
+    std::getline(reader, input);
+    reader.seekg(0);
 
-    std::cout << decompressed_length(reader) << std::endl;
+    std::cout << decompressed_length(reader, false) << '\n';
+    reader = std::ifstream(argv[1]);
+    std::cout << decompressed_length(reader, true) << std::endl;
 
     return 0;
 }
