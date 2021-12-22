@@ -1,0 +1,35 @@
+{
+    "extends": "recommended",
+    "rules": {
+        "CompileStatic": {
+            "enabled": false
+        },
+        "DuplicateNumberLiteral": {
+            "enabled": false
+        },
+        "DuplicateStringLiteral": {
+            "enabled": false
+        },
+        "ImplicitClosureParameter": {
+            "enabled": false
+        },
+        "JavaIoPackageAccess": {
+            "enabled": false
+        },
+        "NestedForLoop": {
+            "enabled": false
+        },
+        "NoDef": {
+            "enabled": false
+        },
+        "UnnecessarySubstring": {
+            "enabled": false
+        },
+        "VariableName": {
+            "finalRegex": "[A-Z][A-Z0-9_]*"
+        },
+        "VariableTypeRequired": {
+            "enabled": false
+        }
+    }
+}
