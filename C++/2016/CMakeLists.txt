@@ -21,5 +21,5 @@ target_link_libraries(aoc crypto)
 target_include_directories(aoc SYSTEM PRIVATE 
     /usr/include/openssl
 #    ${CMAKE_CURRENT_SOURCE_DIR}/alg_dir/structures/include
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/alg_dir/util/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/alg_dir/util/include
 )

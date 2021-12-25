@@ -1,0 +1,48 @@
+Repeating block:
+inp w
+mul x 0
+add x z
+mod x 26
+div z {a}
+add x {b}
+eql x w
+eql x 0
+mul y 0
+add y 25
+mul y x
+add y 1
+mul z y
+mul y 0
+add y w
+add y {c}
+mul y x
+add z y
+
+Can be decompiled to pseudocode:
+w = input[i++]
+tmp = z
+z /= {a}
+if (tmp % 26 + {b} != w)
+    z = 26 * z + w + {c}
+
+Also, {a} is either 1 or 26, {b} <= 0 when {a} = 26, and 0 <= {c} <= 25
+So z in base 26 can be treated as a stack:
+w = input[i++]
+if ({a} == 1)
+    z.push(w + {c})
+else
+    top = z.pop
+    if (top + {b} != w)
+        z.push(w + {c})
+
+Of the 14 blocks, exactly half correspond to a potential pop, and z = 0 iff stack is empty
+Final decompiled pseudocode (can be solved by hand):
+
+for (i in 1 to 14)
+    if ({a[i]} == 1)
+        push input[i] + {c[i]} to stack
+    else if stack.top + {b[i]} != input[i]
+        return invalid
+    else
+        pop stack
+return valid

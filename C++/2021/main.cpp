@@ -1,5 +1,5 @@
-#include "day_22.cpp"
+#include "day_25.cpp"
 
 int main(int argc, char** argv) {
-    return day_22_main(argc, argv);
+    return day_25_main(argc, argv);
 }

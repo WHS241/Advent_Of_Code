@@ -13,7 +13,7 @@
 #include <unordered_set>
 #include <vector>
 
-#include "alg_dir/util/include/util/pair_hash.h"
+#include "util/pair_hash.h"
 
 constexpr std::size_t NUM_FLOORS = 4;
 
@@ -164,9 +164,18 @@ int day_11_main(int argc, char** argv) {
 
     for (std::string line; std::getline(reader, line);) {
         std::istringstream line_read(line);
-        for (std::string s; line_read >> s;) {
-            std::string element = s.substr(0, s.size() - 1);
-            bool is_chip = s.back() == 'M';
+        std::string word;
+        line_read >> word >> word >> word >> word;
+        while (line_read >> word) {
+            if (word == "nothing")
+                break;
+            if (word == "and")
+                line_read >> word;
+            std::string element, type;
+            line_read >> element >> type;
+            bool is_chip = type.front() == 'm';
+            if (is_chip)
+                element.resize(element.find_first_of('-'));
             std::size_t& to_set =
               is_chip ? initial_locations[element].first : initial_locations[element].second;
             to_set = current_floor;
