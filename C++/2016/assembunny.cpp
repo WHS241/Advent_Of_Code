@@ -26,8 +26,8 @@ class assembunny_computer {
     }
 
     public:
-    assembunny_computer(char* file, std::function<void(long)> output) :
-        instructions(), output(output), curr(0) {
+    assembunny_computer(char* file, std::function<void(long)> output = std::function<void(long)>()) :
+        instructions(), curr(0), output(output) {
         std::fill(registers.begin(), registers.end(), 0);
 
         std::ifstream reader(file);
