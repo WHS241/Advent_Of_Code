@@ -1,5 +1,5 @@
 #ifndef DAY_20
-#define DAY_20 2
+#define DAY_20
 
 #include <fstream>
 #include <iostream>
@@ -79,22 +79,22 @@ int day_20_main(int argc, char** argv) {
             it = excluded.erase(it);
     }
 
+    bool found_min = false;
     std::size_t i = 0;
-#if DAY_20 == 1
-    while (excluded.count(i))
-        i = excluded[i] + 1;
-    std::cout << i << std::endl;
-#elif DAY_20 == 2
     std::size_t count = 0;
     while (i < RANGE) {
-        if (excluded.count(i))
+        if (excluded.count(i)) {
             i = excluded[i];
-        else
+        } else {
             ++count;
+            if (!found_min) {
+                std::cout << i << '\n';
+                found_min = true;
+            }
+        }
         ++i;
     }
     std::cout << count << std::endl;
-#endif
 
     return 0;
 }

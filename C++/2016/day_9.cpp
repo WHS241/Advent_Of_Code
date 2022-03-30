@@ -1,5 +1,5 @@
 #ifndef DAY_9
-#define DAY_9 2
+#define DAY_9
 
 #include <fstream>
 #include <iostream>

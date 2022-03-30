@@ -1,5 +1,5 @@
 #ifndef DAY_24
-#define DAY_24 2
+#define DAY_24
 
 #include <algorithm>
 #include <cctype>
@@ -20,18 +20,18 @@ struct state {
 
     std::vector<std::vector<std::size_t>>* g;
 
-    bool is_terminal() const {
-        return std::all_of(visited.begin(), visited.end(), [](bool x) { return x; })
-#if DAY_24
-            && !current
-#endif
-          ;
+    bool is_terminal_part_1() const {
+        return std::all_of(visited.begin(), visited.end(), [](bool x) { return x; });
+    }
+
+    bool is_terminal_part_2() const {
+        return is_terminal_part_1() && !current;
     }
 
     std::list<std::pair<state, std::size_t>> get_successors() const {
         std::list<std::pair<state, std::size_t>> output;
 
-        if (is_terminal())
+        if (is_terminal_part_2())
             return output;
 
         for (std::size_t i = 0; i < visited.size(); ++i) {
@@ -133,6 +133,7 @@ int day_24_main(int argc, char** argv) {
     frontier.emplace_back(0UL, initial);
 
     std::unordered_set<state> visited;
+    bool found_part_1 = false;
 
     while (!frontier.empty()) {
         std::size_t dist;
@@ -144,7 +145,11 @@ int day_24_main(int argc, char** argv) {
             continue;
         visited.insert(curr);
 
-        if (curr.is_terminal()) {
+        if (!found_part_1 && curr.is_terminal_part_1()) {
+            std::cout << dist << std::endl;
+            found_part_1 = true;
+        }
+        if (curr.is_terminal_part_2()) {
             std::cout << dist << std::endl;
             break;
         }

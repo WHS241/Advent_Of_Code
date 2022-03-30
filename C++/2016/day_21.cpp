@@ -1,5 +1,5 @@
 #ifndef DAY_21
-#define DAY_21 2
+#define DAY_21
 
 #include <algorithm>
 #include <fstream>
@@ -135,32 +135,33 @@ int day_21_main(int argc, char** argv) {
         return 1;
 
     std::ifstream reader(argv[1]);
-#if DAY_21 == 1
-    std::size_t password_length = std::stoul(argv[2]);
+    std::vector<std::size_t> password;
+    if (std::isdigit(argv[2][0])) {
+        std::size_t password_length = std::stoul(argv[2]);
 
-    std::vector<std::size_t> password(password_length);
-    std::iota(password.begin(), password.end(), 0UL);
+        password.resize(password_length);
+        std::iota(password.begin(), password.end(), 0UL);
 
-    std::vector<std::string> instructions;
+        std::vector<std::string> instructions;
 
-    for (std::string line; std::getline(reader, line);) {
-        instructions.push_back(line);
+        for (std::string line; std::getline(reader, line);) {
+            instructions.push_back(line);
+        }
+
+        password = scramble(password, instructions);
+    } else {
+        std::string scrambled(argv[2]);
+
+        std::vector<std::string> instructions;
+
+        for (std::string line; std::getline(reader, line);)
+            instructions.push_back(line);
+        password.resize(scrambled.size());
+        std::transform(scrambled.begin(), scrambled.end(), password.begin(),
+                       [](char c) -> std::size_t { return c - 'a'; });
+
+        password = unscramble(password, instructions);
     }
-
-    password = scramble(password, instructions);
-#elif DAY_21 == 2
-    std::string scrambled(argv[2]);
-
-    std::vector<std::string> instructions;
-
-    for (std::string line; std::getline(reader, line);)
-        instructions.push_back(line);
-    std::vector<std::size_t> password(scrambled.size());
-    std::transform(scrambled.begin(), scrambled.end(), password.begin(),
-                   [](char c) -> std::size_t { return c - 'a'; });
-
-    password = unscramble(password, instructions);
-#endif
 
     std::transform(password.begin(), password.end(), std::ostreambuf_iterator<char>(std::cout),
                    [](std::size_t x) -> char { return x + 'a'; });

@@ -22,8 +22,8 @@ C
 - 2020: Complete
 
 Groovy
-- 2016: Day 1-13
-
+- 2016: Complete
+ 
 Node.js
 - 2015: Day 12
 
@@ -34,4 +34,4 @@ Racket
 - 2015: Day 25 (needs to be loaded into REPL)
 
 Wolfram (Mathematica)
-- 2017: Day 5
+- 2017: Day 1-5

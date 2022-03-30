@@ -1,5 +1,5 @@
 #ifndef DAY_5
-#define DAY_5 2
+#define DAY_5
 
 #include <algorithm>
 #include <array>

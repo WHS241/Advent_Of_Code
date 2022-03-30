@@ -1,5 +1,5 @@
 #ifndef DAY_1
-#define DAY_1 2
+#define DAY_1
 
 #include <array>
 #include <cmath>

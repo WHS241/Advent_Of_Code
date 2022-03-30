@@ -1,6 +1,7 @@
 #ifndef DAY_17
-#define DAY_17 2
+#define DAY_17
 
+#include <climits>
 #include <iostream>
 #include <list>
 #include <utility>
@@ -24,19 +25,19 @@ int day_17_main(int argc, char** argv) {
     std::list<state> frontier;
     frontier.push_back({"", std::make_pair(0UL, 0UL)});
 
+    bool found_min = false;
     std::size_t max_length = 0;
 
     while (!frontier.empty()) {
         state current = frontier.front();
         frontier.pop_front();
         if (current.location == std::make_pair(MAZE_X - 1, MAZE_Y - 1)) {
-#if DAY_17 == 1
-            std::cout << current.history << std::endl;
-            break;
-#elif DAY_17 == 2
-            max_length = current.history.size();
+            if (!found_min) {
+                std::cout << current.history << '\n';
+                found_min = true;
+            }
+            max_length = std::max(max_length, current.history.size());
             continue;
-#endif
         }
         std::string options = hex_string_hash(prefix + current.history).substr(0, 4);
         if (options[0] > 'a' && current.location.first != 0)
@@ -55,9 +56,7 @@ int day_17_main(int argc, char** argv) {
                std::make_pair(current.location.first, current.location.second + 1)});
     }
 
-#if DAY_17 == 2
     std::cout << max_length << std::endl;
-#endif
 
     return 0;
 }

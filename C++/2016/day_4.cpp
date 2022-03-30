@@ -1,5 +1,5 @@
 #ifndef DAY_4
-#define DAY_4 2
+#define DAY_4
 
 #include <algorithm>
 #include <cctype>
